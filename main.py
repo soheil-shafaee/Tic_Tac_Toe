@@ -1,5 +1,8 @@
 from tkinter import *
 
+COUNT = 0
+CLICK = True
+
 # -------- Background ------------
 window = Tk()
 window.geometry("512x512")
@@ -31,7 +34,7 @@ btn8 = StringVar()
 btn9 = StringVar()
 
 # --------- Image Section ---------
-O_photo = PhotoImage(file="images/o.png")
+o_photo = PhotoImage(file="images/1.png")
 x_photo = PhotoImage(file="images/x.png")
 
 
@@ -41,55 +44,64 @@ def play():
                      width=23,
                      relief="ridge",
                      borderwidth=.5,
-                     textvariable=btn1)
+                     textvariable=btn1,
+                     command=lambda: press(1, 0, 100))
     button1.place(x=0, y=100)
     button2 = Button(window, height=7,
                      width=23,
                      relief="ridge",
                      borderwidth=.5,
-                     textvariable=btn2)
+                     textvariable=btn2,
+                     command=lambda: press(2, 180, 100))
     button2.place(x=180, y=100)
     button3 = Button(window, height=7,
                      width=23,
                      relief="ridge",
                      borderwidth=.5,
-                     textvariable=btn3)
+                     textvariable=btn3,
+                     command=lambda: press(3, 360, 100))
     button3.place(x=360, y=100)
     button4 = Button(window, height=7,
                      width=23,
                      relief="ridge",
                      borderwidth=.5,
-                     textvariable=btn4)
+                     textvariable=btn4,
+                     command=lambda: press(4, 0, 230))
     button4.place(x=0, y=230)
     button5 = Button(window, height=7,
                      width=23,
                      relief="ridge",
                      borderwidth=.5,
-                     textvariable=btn5)
+                     textvariable=btn5,
+                     command=lambda: press(5, 180, 230))
     button5.place(x=180, y=230)
     button6 = Button(window, height=7,
                      width=23,
                      relief="ridge",
                      borderwidth=.5,
-                     textvariable=btn6)
+                     textvariable=btn6,
+                     command=lambda: press(6, 360, 230))
     button6.place(x=360, y=230)
     button7 = Button(window, height=7,
                      width=23,
                      relief="ridge",
                      borderwidth=.5,
-                     textvariable=btn7)
+                     textvariable=btn7,
+                     command=lambda: press(7, 0, 360))
     button7.place(x=0, y=360)
     button8 = Button(window, height=7,
                      width=23,
                      relief="ridge",
                      borderwidth=.5,
-                     textvariable=btn8)
+                     textvariable=btn8,
+                     command=lambda: press(8, 180, 360))
     button8.place(x=180, y=360)
     button9 = Button(window, height=7,
                      width=23,
                      relief="ridge",
                      borderwidth=.5,
-                     textvariable=btn9)
+                     textvariable=btn9,
+                     command=lambda: press(9, 360, 360))
     button9.place(x=360, y=360)
 
 
@@ -97,7 +109,11 @@ play()
 
 
 def press(num, r, c):
-    pass
+    global CLICK, COUNT
+
+    if CLICK:
+        label_image = Label(window, image=o_photo)
+        label_image.place(x=r, y=c)
 
 
 # --------- Display Section --------
