@@ -34,7 +34,7 @@ btn8 = StringVar()
 btn9 = StringVar()
 
 # --------- Image Section ---------
-o_photo = PhotoImage(file="images/1.png")
+o_photo = PhotoImage(file="images/o.png")
 x_photo = PhotoImage(file="images/x.png")
 
 
@@ -112,8 +112,55 @@ def press(num, r, c):
     global CLICK, COUNT
 
     if CLICK:
-        label_image = Label(window, image=o_photo)
+        label_image = Label(window, image=x_photo)
+        if num == 1:
+            btn1.set("x")
+        elif num == 2:
+            btn2.set("x")
+        elif num == 3:
+            btn2.set("x")
+        elif num == 4:
+            btn4.set("x")
+        elif num == 5:
+            btn5.set("x")
+        elif num == 6:
+            btn6.set("x")
+        elif num == 7:
+            btn7.set("x")
+        elif num == 8:
+            btn8.set("x")
+        else:
+            btn9.set("x")
+        COUNT += 1
         label_image.place(x=r, y=c)
+        CLICK = False
+    else:
+        label_image = Label(window, image=o_photo)
+        if num == 1:
+            btn1.set("o")
+        elif num == 2:
+            btn2.set("o")
+        elif num == 3:
+            btn2.set("o")
+        elif num == 4:
+            btn4.set("o")
+        elif num == 5:
+            btn5.set("o")
+        elif num == 6:
+            btn6.set("o")
+        elif num == 7:
+            btn7.set("o")
+        elif num == 8:
+            btn8.set("o")
+        else:
+            btn9.set("o")
+        COUNT += 1
+        label_image.place(x=r, y=c)
+        CLICK = True
+
+
+def win_check():
+    pass
 
 
 # --------- Display Section --------
