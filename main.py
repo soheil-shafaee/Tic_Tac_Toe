@@ -134,6 +134,7 @@ def press(num, r, c):
         COUNT += 1
         label_image.place(x=r, y=c)
         CLICK = False
+        win_check()
     else:
         label_image = Label(window, image=o_photo)
         if num == 1:
@@ -157,10 +158,12 @@ def press(num, r, c):
         COUNT += 1
         label_image.place(x=r, y=c)
         CLICK = True
+        win_check()
 
 
 def win_check():
-    pass
+    if btn1 == btn2 == btn3:
+        print("you win")
 
 
 # --------- Display Section --------
