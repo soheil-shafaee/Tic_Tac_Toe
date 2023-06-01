@@ -1,4 +1,6 @@
+import tkinter.messagebox
 from tkinter import *
+from tkinter import messagebox
 
 COUNT = 0
 CLICK = True
@@ -15,7 +17,7 @@ window.resizable(False, False)
 turn_label = Label(text="Turn: ", bg="#85adad")
 turn_label.place(x=240, y=30)
 
-turn_symbol = Label(text="O", bg="#85adad")
+turn_symbol = Label(text="x", bg="#85adad")
 turn_symbol.place(x=270, y=30)
 
 # ---------- Restart Button ------
@@ -113,6 +115,7 @@ def press(num, r, c):
 
     if CLICK:
         label_image = Label(window, image=x_photo)
+        turn_symbol.config(text="O")
         if num == 1:
             btn1.set("x")
         elif num == 2:
@@ -137,6 +140,7 @@ def press(num, r, c):
         win_check()
     else:
         label_image = Label(window, image=o_photo)
+        turn_symbol.config(text="X")
         if num == 1:
             btn1.set("o")
         elif num == 2:
@@ -162,8 +166,19 @@ def press(num, r, c):
 
 
 def win_check():
-    if btn1 == btn2 == btn3:
-        print("you win")
+    global CLICK, COUNT
+    if (btn1.get() == "x" and btn2.get() == "x" and btn3.get() == "x"
+            or btn4.get() == "x" and btn5.get() == "x" and btn6.get() == "x"
+            or btn7.get() == "x" and btn8.get() == "x" and btn9.get() == "x"
+            or btn1.get() == "x" and btn4.get() == "x" and btn7.get() == "x"
+            or btn2.get() == "x" and btn5.get() == "x" and btn8.get() == "x"
+            or btn3.get() == "x" and btn6.get() == "x" and btn9.get() == "x"
+            or btn1.get() == "x" and btn5.get() == "x" and btn9.get() == "x"
+            or btn3.get() == "x" and btn5.get() == "x" and btn5.get() == "x"):
+        tkinter.messagebox.showinfo("Tic Tac Toe", "The Player 'O' Win")
+        CLICK = True
+        COUNT = 0
+        play()
 
 
 # --------- Display Section --------
