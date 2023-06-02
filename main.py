@@ -175,10 +175,29 @@ def win_check():
             or btn3.get() == "x" and btn6.get() == "x" and btn9.get() == "x"
             or btn1.get() == "x" and btn5.get() == "x" and btn9.get() == "x"
             or btn3.get() == "x" and btn5.get() == "x" and btn5.get() == "x"):
-        tkinter.messagebox.showinfo("Tic Tac Toe", "The Player 'O' Win")
+        tkinter.messagebox.showinfo("Tic Tac Toe", "The Player 'x' Win!")
         CLICK = True
         COUNT = 0
         play()
+    elif (btn1.get() == "o" and btn2.get() == "o" and btn3.get() == "o"
+            or btn4.get() == "o" and btn5.get() == "o" and btn6.get() == "o"
+            or btn7.get() == "o" and btn8.get() == "o" and btn9.get() == "o"
+            or btn1.get() == "o" and btn4.get() == "o" and btn7.get() == "o"
+            or btn2.get() == "o" and btn5.get() == "o" and btn8.get() == "o"
+            or btn3.get() == "o" and btn6.get() == "o" and btn9.get() == "o"
+            or btn1.get() == "o" and btn5.get() == "o" and btn9.get() == "o"
+            or btn3.get() == "o" and btn5.get() == "o" and btn5.get() == "o"):
+        tkinter.messagebox.showinfo("Tic Tac Toe", "The Player 'O' Win!")
+        CLICK = True
+        COUNT = 0
+    elif COUNT == 9:
+        tkinter.messagebox.showinfo("Tic Tac Toe", "Tie Game!!")
+        CLICK = True
+        COUNT = 0
+
+
+def clear():
+    pass
 
 
 # --------- Display Section --------
