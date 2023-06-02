@@ -20,10 +20,6 @@ turn_label.place(x=240, y=30)
 turn_symbol = Label(text="x", bg="#85adad")
 turn_symbol.place(x=270, y=30)
 
-# ---------- Restart Button ------
-restart_button = Button(text="Restart")
-restart_button.place(x=240, y=50)
-
 # --------- Game Button ----------
 btn1 = StringVar()
 btn2 = StringVar()
@@ -180,13 +176,13 @@ def win_check():
         COUNT = 0
         play()
     elif (btn1.get() == "o" and btn2.get() == "o" and btn3.get() == "o"
-            or btn4.get() == "o" and btn5.get() == "o" and btn6.get() == "o"
-            or btn7.get() == "o" and btn8.get() == "o" and btn9.get() == "o"
-            or btn1.get() == "o" and btn4.get() == "o" and btn7.get() == "o"
-            or btn2.get() == "o" and btn5.get() == "o" and btn8.get() == "o"
-            or btn3.get() == "o" and btn6.get() == "o" and btn9.get() == "o"
-            or btn1.get() == "o" and btn5.get() == "o" and btn9.get() == "o"
-            or btn3.get() == "o" and btn5.get() == "o" and btn5.get() == "o"):
+          or btn4.get() == "o" and btn5.get() == "o" and btn6.get() == "o"
+          or btn7.get() == "o" and btn8.get() == "o" and btn9.get() == "o"
+          or btn1.get() == "o" and btn4.get() == "o" and btn7.get() == "o"
+          or btn2.get() == "o" and btn5.get() == "o" and btn8.get() == "o"
+          or btn3.get() == "o" and btn6.get() == "o" and btn9.get() == "o"
+          or btn1.get() == "o" and btn5.get() == "o" and btn9.get() == "o"
+          or btn3.get() == "o" and btn5.get() == "o" and btn5.get() == "o"):
         tkinter.messagebox.showinfo("Tic Tac Toe", "The Player 'O' Win!")
         CLICK = True
         COUNT = 0
@@ -197,8 +193,21 @@ def win_check():
 
 
 def clear():
-    pass
+    btn1.set("")
+    btn2.set("")
+    btn2.set("")
+    btn4.set("")
+    btn5.set("")
+    btn6.set("")
+    btn7.set("")
+    btn8.set("")
+    btn9.set("")
+    play()
 
+
+# ---------- Restart Button ------
+restart_button = Button(text="Restart", command=clear)
+restart_button.place(x=240, y=50)
 
 # --------- Display Section --------
 window.mainloop()
