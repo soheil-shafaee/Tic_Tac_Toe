@@ -1,6 +1,6 @@
 import tkinter.messagebox
 from tkinter import *
-from tkinter import messagebox
+
 
 COUNT = 0
 CLICK = True
@@ -117,7 +117,7 @@ def press(num, r, c):
         elif num == 2:
             btn2.set("x")
         elif num == 3:
-            btn2.set("x")
+            btn3.set("x")
         elif num == 4:
             btn4.set("x")
         elif num == 5:
@@ -142,7 +142,7 @@ def press(num, r, c):
         elif num == 2:
             btn2.set("o")
         elif num == 3:
-            btn2.set("o")
+            btn3.set("o")
         elif num == 4:
             btn4.set("o")
         elif num == 5:
@@ -170,7 +170,7 @@ def win_check():
             or btn2.get() == "x" and btn5.get() == "x" and btn8.get() == "x"
             or btn3.get() == "x" and btn6.get() == "x" and btn9.get() == "x"
             or btn1.get() == "x" and btn5.get() == "x" and btn9.get() == "x"
-            or btn3.get() == "x" and btn5.get() == "x" and btn5.get() == "x"):
+            or btn3.get() == "x" and btn5.get() == "x" and btn7.get() == "x"):
         tkinter.messagebox.showinfo("Tic Tac Toe", "The Player 'x' Win!")
         CLICK = True
         COUNT = 0
@@ -182,7 +182,7 @@ def win_check():
           or btn2.get() == "o" and btn5.get() == "o" and btn8.get() == "o"
           or btn3.get() == "o" and btn6.get() == "o" and btn9.get() == "o"
           or btn1.get() == "o" and btn5.get() == "o" and btn9.get() == "o"
-          or btn3.get() == "o" and btn5.get() == "o" and btn5.get() == "o"):
+          or btn3.get() == "o" and btn5.get() == "o" and btn7.get() == "o"):
         tkinter.messagebox.showinfo("Tic Tac Toe", "The Player 'O' Win!")
         CLICK = True
         COUNT = 0
@@ -195,7 +195,7 @@ def win_check():
 def clear():
     btn1.set("")
     btn2.set("")
-    btn2.set("")
+    btn3.set("")
     btn4.set("")
     btn5.set("")
     btn6.set("")
