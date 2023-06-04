@@ -1,6 +1,7 @@
-import tkinter.messagebox
 from tkinter import *
-
+from tkinter.font import Font
+import tkinter.messagebox
+import pyglet
 
 COUNT = 0
 CLICK = True
@@ -13,11 +14,18 @@ window.iconbitmap("images/2911080.ico")
 window.configure(bg="#85adad")
 window.resizable(False, False)
 
-# -------- Turn Text -------------
-turn_label = Label(text="Turn: ", bg="#85adad")
-turn_label.place(x=240, y=30)
+# -------- Define Font -----------
+# custom_font = Font(
+#     family="RubikPixels",
+#     size = 28
+# )
+pyglet.font.add_file('RubikPixels-Regular.ttf')
 
-turn_symbol = Label(text="x", bg="#85adad")
+# -------- Turn Text -------------
+turn_label = Label(text="Turn: ", font=('High speed', 18), bg="#85adad")
+turn_label.place(x=200, y=30)
+
+turn_symbol = Label(text="",font=('High speed', 18), bg="#85adad")
 turn_symbol.place(x=270, y=30)
 
 # --------- Game Button ----------
