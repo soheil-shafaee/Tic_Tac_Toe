@@ -14,19 +14,12 @@ window.iconbitmap("images/2911080.ico")
 window.configure(bg="#85adad")
 window.resizable(False, False)
 
-# -------- Define Font -----------
-# custom_font = Font(
-#     family="RubikPixels",
-#     size = 28
-# )
-pyglet.font.add_file('RubikPixels-Regular.ttf')
-
 # -------- Turn Text -------------
-turn_label = Label(text="Turn: ", font=('High speed', 18), bg="#85adad")
+turn_label = Label(text="Turn: ", font=('High speed', 18, 'bold'), bg="#85adad")
 turn_label.place(x=200, y=30)
 
-turn_symbol = Label(text="",font=('High speed', 18), bg="#85adad")
-turn_symbol.place(x=270, y=30)
+turn_symbol = Label(text="x", font=('High speed', 18, "bold", ), bg="#85adad", fg="red")
+turn_symbol.place(x=280, y=30)
 
 # --------- Game Button ----------
 btn1 = StringVar()
@@ -119,7 +112,7 @@ def press(num, r, c):
 
     if CLICK:
         label_image = Label(window, image=x_photo)
-        turn_symbol.config(text="O")
+        turn_symbol.config(text="O", fg='blue')
         if num == 1:
             btn1.set("x")
         elif num == 2:
@@ -144,7 +137,7 @@ def press(num, r, c):
         win_check()
     else:
         label_image = Label(window, image=o_photo)
-        turn_symbol.config(text="X")
+        turn_symbol.config(text="X", fg='red')
         if num == 1:
             btn1.set("o")
         elif num == 2:
@@ -180,6 +173,7 @@ def win_check():
             or btn1.get() == "x" and btn5.get() == "x" and btn9.get() == "x"
             or btn3.get() == "x" and btn5.get() == "x" and btn7.get() == "x"):
         tkinter.messagebox.showinfo("Tic Tac Toe", "The Player 'x' Win!")
+        clear()
         CLICK = True
         COUNT = 0
         play()
@@ -192,10 +186,12 @@ def win_check():
           or btn1.get() == "o" and btn5.get() == "o" and btn9.get() == "o"
           or btn3.get() == "o" and btn5.get() == "o" and btn7.get() == "o"):
         tkinter.messagebox.showinfo("Tic Tac Toe", "The Player 'O' Win!")
+        clear()
         CLICK = True
         COUNT = 0
     elif COUNT == 9:
         tkinter.messagebox.showinfo("Tic Tac Toe", "Tie Game!!")
+        clear()
         CLICK = True
         COUNT = 0
 
@@ -210,12 +206,13 @@ def clear():
     btn7.set("")
     btn8.set("")
     btn9.set("")
+    turn_symbol.config(text="X", fg="red")
     play()
 
 
 # ---------- Restart Button ------
 restart_button = Button(text="Restart", command=clear)
-restart_button.place(x=240, y=50)
+# restart_button.place(x=240, y=50)
 
 # --------- Display Section --------
 window.mainloop()
