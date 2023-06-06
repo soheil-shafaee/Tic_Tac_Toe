@@ -1,2 +1,5 @@
 # The Tic Tac Toe Game
-It's training project. I used Tkinter library in this project. My passion for this project was challeging my knowledge in programming. I used in this project very simple code but in future I'll try to update by using OOP.
+This is Tic Tac Game. You can play two player mode by your friend. I used Tkinter python's library and for the future I'll update that by using AI for one player mode.
+
+# Features
+Two player mode.
