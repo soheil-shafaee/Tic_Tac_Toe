@@ -1,7 +1,6 @@
 from tkinter import *
-from tkinter.font import Font
 import tkinter.messagebox
-import pyglet
+
 
 COUNT = 0
 CLICK = True
@@ -111,7 +110,7 @@ def press(num, r, c):
     global CLICK, COUNT
 
     if CLICK:
-        label_image = Label(window, image=x_photo)
+        label_image = Label(window, image=x_photo, height=110, width=155)
         turn_symbol.config(text="O", fg='blue')
         if num == 1:
             btn1.set("x")
@@ -136,7 +135,7 @@ def press(num, r, c):
         CLICK = False
         win_check()
     else:
-        label_image = Label(window, image=o_photo)
+        label_image = Label(window, image=o_photo, height=110, width=155)
         turn_symbol.config(text="X", fg='red')
         if num == 1:
             btn1.set("o")
@@ -208,11 +207,6 @@ def clear():
     btn9.set("")
     turn_symbol.config(text="X", fg="red")
     play()
-
-
-# ---------- Restart Button ------
-restart_button = Button(text="Restart", command=clear)
-# restart_button.place(x=240, y=50)
 
 # --------- Display Section --------
 window.mainloop()
